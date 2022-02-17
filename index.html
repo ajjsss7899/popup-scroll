@@ -13,7 +13,7 @@
 <style>
 * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Noto Sans KR', sans-serif;}
 /* 스크롤 막기 CSS */
-.notScroll {position: fixed;top: 0;left: 0;width: 100%;height: 100%;touch-action:none;}
+.notScroll {overflow: hidden;width: 100%;height: 100%;touch-action:none;}
 /* 팝업 CSS */
 .btn {display: flex;justify-content: center;align-items: center;width: 300px;height: 300px;margin: 0 auto 30px;background: #ade9ff;font-size: 16px;text-decoration: none;color: #000;}
 .pop_wrap {display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 3;}
@@ -25,7 +25,7 @@
 </style>    
 </head>
 <body>
-<a href="#" class="btn">12345번 버튼</a>
+<a href="#" class="btn">111111111111번 버튼</a>
 <a href="#" class="btn">2번 버튼</a>
 <a href="#" class="btn">3번 버튼</a>
 <a href="#" class="btn">4번 버튼</a>
@@ -63,15 +63,17 @@ function popup(){
         e.preventDefault();
         $('.pop_wrap').fadeIn(300);
         sct = $(document).scrollTop();
-        $("body").addClass('notScroll');
+        $("html, body").addClass('notScroll').on('scroll touchmove mousewheel', function(e){
+            e.preventDefault();
+        });
     })
 
     //팝업 닫기
     $('.pop_wrap .bg, .pop_wrap .close').on('click',function(e){
         e.preventDefault();
         $('.pop_wrap').fadeOut(100);
-        $("body").removeClass('notScroll');
-        $("body").scrollTop(sct);
+        $("html, body").removeClass('notScroll').off('scroll touchmove mousewheel');
+        $("html, body").scrollTop(sct);
     })
 }
 </script>
