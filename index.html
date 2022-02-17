@@ -63,15 +63,15 @@ function popup(){
         e.preventDefault();
         $('.pop_wrap').fadeIn(300);
         sct = $(document).scrollTop();
-        $("html, body").addClass('notScroll');
+        $("body").addClass('notScroll');
     })
 
     //팝업 닫기
     $('.pop_wrap .bg, .pop_wrap .close').on('click',function(e){
         e.preventDefault();
         $('.pop_wrap').fadeOut(100);
-        $("html, body").removeClass('notScroll');
-        $("html, body").scrollTop(sct);
+        $("body").removeClass('notScroll');
+        $("body").scrollTop(sct);
     })
 }
 </script>
