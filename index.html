@@ -62,7 +62,6 @@ function popup(){
     $('.btn').on('click',function(e){
         e.preventDefault();
         $('.pop_wrap').fadeIn(300);
-        sct = $(document).scrollTop();
         $("body").addClass('notScroll');
     })
 
@@ -71,7 +70,6 @@ function popup(){
         e.preventDefault();
         $('.pop_wrap').fadeOut(100);
         $("body").removeClass('notScroll');
-        //$("body").scrollTop(sct);
     })
 }
 </script>
